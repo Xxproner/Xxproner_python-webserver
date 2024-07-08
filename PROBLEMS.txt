@@ -1,0 +1,25 @@
+1) route work is too strange for me
+2) requst .../?search=login&page=1 leads to throw exception
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 42196)
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/socketserver.py", line 316, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/usr/lib/python3.9/socketserver.py", line 347, in process_request
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.9/socketserver.py", line 720, in __init__
+    self.handle()
+  File "/usr/lib/python3.9/http/server.py", line 427, in handle
+    self.handle_one_request()
+  File "/usr/lib/python3.9/http/server.py", line 415, in handle_one_request
+    method()
+  File "/home/pasha/Python/python-webserver/server.py", line 24, in do_GET
+    if route_handler.find(self.path):
+  File "/home/pasha/Python/python-webserver/routes/routeHandler.py", line 11, in find
+    self.result = self.find_route(self.routes, route_parts)
+  File "/home/pasha/Python/python-webserver/routes/routeHandler.py", line 33, in find_route
+    query[val] = pieces[i + 1]
+IndexError: list index out of range
+----------------------------------------
